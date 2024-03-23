@@ -1,0 +1,50 @@
+breakdown of the tables and their columns:
+
+users:
+id: Primary key for the user
+username: Unique username for the user
+email: Unique email address for the user
+password: Hashed password for the user
+role: The user's role (admin, author, or regular)
+created_at: Timestamp for when the user was created
+updated_at: Timestamp for when the user was last updated
+
+
+posts:
+id: Primary key for the post
+title: The title of the post
+content: The content of the post
+author_id: Foreign key referencing the id of the user who authored the post
+category_id: Foreign key referencing the id of the category the post belongs to
+created_at: Timestamp for when the post was created
+updated_at: Timestamp for when the post was last updated
+
+
+categories:
+id: Primary key for the category
+name: Unique name of the category
+description: Description of the category
+created_at: Timestamp for when the category was created
+updated_at: Timestamp for when the category was last updated
+
+
+comments:
+id: Primary key for the comment
+post_id: Foreign key referencing the id of the post the comment belongs to
+author_id: Foreign key referencing the id of the user who authored the comment
+content: The content of the comment
+created_at: Timestamp for when the comment was created
+updated_at: Timestamp for when the comment was last updated
+
+
+tags:
+id: Primary key for the tag
+name: Unique name of the tag
+created_at: Timestamp for when the tag was created
+updated_at: Timestamp for when the tag was last updated
+
+
+post_tags:
+post_id: Foreign key referencing the id of the post
+tag_id: Foreign key referencing the id of the tag
+PRIMARY KEY (post_id, tag_id): Composite primary key to ensure unique combinations of post and tag
